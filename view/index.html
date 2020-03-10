@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de inversiones</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../scripts/jquery-3.4.1.slim.min.js"></script>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../scripts/controller.js"></script>
+    <script src="../scripts/controllerGraphic.js"></script>
+
+
+    <link rel="stylesheet" href="../css/morris.css">
+    <script src="../scripts/morris.js"></script>
+    <script src="../scripts/raphael-min.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ingreso de Datos</h5>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label>Pesimista</label>
+                            <input type="number" class="form-control" id="inversioInicialPe"
+                                placeholder="Inversión inicial" step="0.01" required value="140000">
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Probable</label>
+                            <input type="number" class="form-control" id="inversioInicialPr"
+                                placeholder="Inversión inicial" step="0.01" required value="95000">
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Optimista</label>
+                            <input type="number" class="form-control" id="inversioInicialOp"
+                                placeholder="Inversión inicial" step="0.01" required value="85000">
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-striped mb-0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" style="width: 20px;">Año</th>
+                                <th scope="col">Pesimista</th>
+                                <th scope="col">Probable</th>
+                                <th scope="col">Optimista</th>
+                                <th scope="col"><input type="number" class="form-control" id="tasaInteres"
+                                        placeholder="Tasa" step="0.01" required value="10" style="width: 70px;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table class="table table-bordered table-striped mb-0">
+                            <tbody id="tbodyNewData">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">RESULTADOS</h4>
+                    <table class="table table-bordered table-striped mb-0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Pesimista</th>
+                                <th scope="col">Probable</th>
+                                <th scope="col">Optimista</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyResultado">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">GRÁFICA</h4>
+                    <div id="graficaTIR" style="height: 600px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="padre">
+                        <div class="hijo_uno" >
+                        <button type="button" class="btn btn-primary" onclick="onAddNewItem()">Añadir</button>
+                        <button type="button" class="btn btn-danger" onclick="cleanAllData()">Limpiar</button>
+                        <button type="button" class="btn btn-success" onclick="calcularValores()">Calcular</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="padre">
+        <div class="hijo_uno" id="cargando">
+        </div>
+    </div>
+
+</body>
+
+</html>
